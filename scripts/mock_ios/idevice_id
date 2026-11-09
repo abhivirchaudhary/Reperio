@@ -1,0 +1,4 @@
+#!/bin/sh
+# Mock of libimobiledevice's idevice_id.
+[ "$1" = "-l" ] && echo 00008030-001A2B3C4D5E6F78
+exit 0

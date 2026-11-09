@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Reperio: the drive as squares, searched, with what was found picked out under the glass. Rendered by scripts/make_icon.sh; the in-app mark is i-logo in app/ui/index.html. -->
+  <defs>
+    <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="0" y1="100" x2="0" y2="924"><stop offset="0" stop-color="#DE8363"/><stop offset="1" stop-color="#BF5B3B"/></linearGradient>
+  </defs>
+  <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#g)"/>
+  <g fill="#FAF9F5">
+    <rect x="262" y="262" width="140" height="140" rx="30" opacity="0.32"/>
+    <rect x="442" y="262" width="140" height="140" rx="30" opacity="0.32"/>
+    <rect x="622" y="262" width="140" height="140" rx="30"/>
+    <rect x="262" y="442" width="140" height="140" rx="30"/>
+    <rect x="442" y="442" width="140" height="140" rx="30" opacity="0.32"/>
+    <rect x="622" y="442" width="140" height="140" rx="30" opacity="0.32"/>
+    <rect x="262" y="622" width="140" height="140" rx="30" opacity="0.32"/>
+    <rect x="442" y="622" width="140" height="140" rx="30" opacity="0.32"/>
+  </g>
+  <g fill="none" stroke="#FAF9F5" stroke-width="40" stroke-linecap="round">
+    <circle cx="660" cy="660" r="112" fill="url(#g)"/>
+    <path d="M740 740 L812 812"/>
+  </g>
+  <rect x="612" y="612" width="96" height="96" rx="22" fill="#FAF9F5"/>
+</svg>

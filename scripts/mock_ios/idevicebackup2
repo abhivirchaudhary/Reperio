@@ -1,0 +1,14 @@
+#!/bin/sh
+# Mock of idevicebackup2: usage `idevicebackup2 -u UDID backup DEST`. Writes a fake backup.
+here=$(cd "$(dirname "$0")" && pwd)
+udid=""; dest=""
+while [ $# -gt 0 ]; do
+  case "$1" in -u) udid="$2"; shift;; backup) dest="$2"; shift;; esac
+  shift
+done
+printf 'Backup directory is "%s"\n' "$dest"
+printf 'Receiving files\n'
+for p in 10 40 70 100; do printf '[==========] %s%% Finished\r' "$p"; done
+printf '\n'
+python3 "$here/make_fake_backup.py" "$dest/$udid" $MOCK_IOS_BACKUP_FLAGS || exit 1
+echo "Backup Successful."

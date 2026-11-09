@@ -1,0 +1,19 @@
+[package]
+name = "reperio"
+description = "Recover deleted photos and videos from memory cards and disks"
+version.workspace = true
+edition.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+reperio-engine = { path = "../engine" }
+anyhow = "1"
+serde_json = "1"
+clap = { version = "4", features = ["derive"] }
+serde = { version = "1.0.229", features = ["derive"] }
+chrono = "0.4"
+
+[target.'cfg(unix)'.dependencies]
+libc = "0.2"

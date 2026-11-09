@@ -1,0 +1,105 @@
+# Coverage-guided fuzzing of the engine's parsers with cargo-fuzz, which
+# needs a nightly toolchain. Kept out of the main workspace so stable
+# builds never see it:
+#
+#     cargo install cargo-fuzz
+#     cd fuzz && cargo +nightly fuzz run fs_ntfs -- -max_total_time=300
+#
+# Seed corpora: copy card images (or their first few MB) and format samples
+# into fuzz/corpus/<target>/. The mutation tests in
+# engine/tests/robustness.rs cover the same ground on stable.
+[package]
+name = "reperio-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+reperio-engine = { path = "../engine" }
+
+# Its own workspace, so it is not part of the one at the repository root.
+[workspace]
+
+[profile.release]
+debug = 1
+
+[[bin]]
+name = "partition"
+path = "fuzz_targets/partition.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "fs_fat"
+path = "fuzz_targets/fs_fat.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "fs_exfat"
+path = "fuzz_targets/fs_exfat.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "fs_ntfs"
+path = "fuzz_targets/fs_ntfs.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "fs_hfsplus"
+path = "fuzz_targets/fs_hfsplus.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "fs_apfs"
+path = "fuzz_targets/fs_apfs.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "fs_ext4"
+path = "fuzz_targets/fs_ext4.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "carve_all"
+path = "fuzz_targets/carve_all.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "jpeg"
+path = "fuzz_targets/jpeg.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "bmff"
+path = "fuzz_targets/bmff.rs"
+test = false
+doc = false
+bench = false
+
+[[bin]]
+name = "session"
+path = "fuzz_targets/session.rs"
+test = false
+doc = false
+bench = false

@@ -1,0 +1,12 @@
+#!/bin/sh
+# Mock of ideviceinfo. A UDID starting with LOCKED simulates a phone that has not trusted this computer.
+case "$2" in LOCKED*) locked=1;; esac
+if [ -n "$locked" ]; then echo "ERROR: Could not connect to lockdownd. Exiting. (-5: Invalid host id, please trust this computer)" >&2; exit 255; fi
+q=""
+while [ $# -gt 0 ]; do [ "$1" = "-q" ] && q="$2"; shift; done
+case "$q" in
+  com.apple.disk_usage) echo "TotalDiskCapacity: 128000000000"; echo "TotalDataAvailable: 54000000000";;
+  com.apple.mobile.battery) echo "BatteryCurrentCapacity: 87"; echo "BatteryIsCharging: true";;
+  com.apple.mobile.backup) echo "WillEncrypt: false";;
+  *) echo "DeviceName: Sam's iPhone"; echo "ProductType: iPhone15,2"; echo "ProductVersion: 17.4"; echo "SerialNumber: F2LXYZ12345"; echo "UniqueDeviceID: 00008030-001A2B3C4D5E6F78";;
+esac

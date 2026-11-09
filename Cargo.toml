@@ -1,0 +1,19 @@
+[workspace]
+resolver = "2"
+members = ["engine", "cli", "app/src-tauri"]
+# cargo-fuzz targets build on nightly only; see fuzz/Cargo.toml.
+exclude = ["fuzz"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license-file = "LICENSE"
+
+[workspace.lints.clippy]
+# Newer clippy suggests `as_chunks` for `chunks_exact(N)`. Both walk the same
+# bytes and the existing form reads fine, so it is left as it is.
+chunks_exact_to_as_chunks = "allow"
+
+[profile.release]
+lto = true
+codegen-units = 1

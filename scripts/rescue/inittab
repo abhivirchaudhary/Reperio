@@ -1,0 +1,7 @@
+# The rescue system's init (busybox). No services: just the boot script,
+# the recovery menu on the first screen, and a command line on the second.
+::sysinit:/etc/reperio/boot.sh
+tty1::respawn:/etc/reperio/session.sh
+tty2::respawn:/bin/ash -l
+::ctrlaltdel:/sbin/reboot
+::shutdown:/etc/reperio/shutdown.sh

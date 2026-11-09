@@ -1,0 +1,10 @@
+target/
+*.img
+recovered/
+__pycache__/
+.DS_Store
+rt-out/
+redteam-out/
+reperio-rescue.iso*
+# Tauri regenerates these on every build
+app/src-tauri/gen/schemas/

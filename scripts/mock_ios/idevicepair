@@ -1,0 +1,3 @@
+#!/bin/sh
+# Mock of idevicepair.
+echo "SUCCESS: Paired with device"
